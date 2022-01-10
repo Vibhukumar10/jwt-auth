@@ -26,7 +26,9 @@ const App = () => {
         }
     }
 
-    const axiosJWT = axios.create()
+    const axiosJWT = axios.create({
+        baseURL: 'https://jsonwebtoken-auth.herokuapp.com/api/',
+    })
 
     axiosJWT.interceptors.request.use(
         async (config) => {
