@@ -4,6 +4,10 @@ const jwt = require('jsonwebtoken')
 const app = express()
 app.use(express.json({ extended: true }))
 
+app.get('/', (req, res) => {
+    res.send('Hello to JWT Auth!')
+})
+
 const users = [
     {
         id: '1',
@@ -113,4 +117,6 @@ app.post('/api/logout', verify, (req, res) => {
     res.sendStatus(200)
 })
 
-app.listen(5000, () => console.log('Backend Server is running!'))
+const PORT = process.env.PORT || 5000
+
+app.listen(PORT, () => console.log('Backend Server is running!'))
